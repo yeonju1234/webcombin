@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-animation [114-119p]</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #747eff;
+        }
+        .ani{
+            background-color: #ff9359;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50px, -50px);
+            /* 위치 이동시 margin을 대신하여 사용 가능! */
+
+            animation-name: test;
+            /* 표현하고자 하는 요소에 "애니메이션 이름" */
+
+            animation-duration: 5s;
+
+            /* 애니메이션 동작에 대한 시간 ~ 지속될 시간 */
+            animation-iteration-count: infinite;
+            /* 애니메이션 횟수 = 숫자값(횟수), infinite(무한 반복) */
+
+            /* 애니메이션 방향 - normal(기본값)/ reverse(반대)
+            alternate from <-> to의 교차 반복 */
+            animation-direction: alternate;
+
+            animation-delay: 2s;
+            /* 애니메이션 지연값 */
+
+            animation-timing-function: ease-in-out;
+            /* 시간별 속도감 변화 */
+        }
+
+        .ani:hover{
+            animation-play-state: paused;
+            /* 애니메이션 효과의 재생 혹은 중지 (마우스커서를 가져다대면)*/
+        }
+
+        /* 
+        키프레임 -구간별 스타일을 부여하여 동작을 표현
+        0%, from >>시작점
+        100%, t0 >>끝점
+        30%~50%..>>중간 구간도 표현 가능! */
+
+        @keyframes test{
+            /* 시작 css */
+            0%{
+                border-radius: 0px;
+            }
+
+            30%{
+                border-radius: 50px 0 0 0 ;
+                background-color: #fae573;
+            }
+            50%{
+                border-radius: 0 50PX 0 0;
+                background-color: #76b47d;
+            }
+
+            /* 끝 css */
+            100%{
+                border-radius: 100px;
+                background-color: #303dfd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--animation: 각각의 "프레임" 내에서 스타일을 구현하여 동작을 만들 때 사용-->
+    <div class="ani"></div>
+</body>
+</html>
